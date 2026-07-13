@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laboratorio Dental Cancún</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:#f5fdfd;
+color:#333;
+}
+
+header{
+height:100vh;
+background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+url('https://images.unsplash.com/photo-1510097467424-192d713fd8b2');
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+}
+
+header h1{
+font-size:4rem;
+margin-bottom:10px;
+}
+
+header p{
+font-size:1.3rem;
+}
+
+.btn{
+display:inline-block;
+margin-top:20px;
+padding:15px 30px;
+background:#00c2cb;
+color:white;
+text-decoration:none;
+border-radius:30px;
+font-weight:bold;
+}
+
+section{
+padding:80px 10%;
+}
+
+.titulo{
+text-align:center;
+font-size:2.5rem;
+margin-bottom:40px;
+color:#00a7b3;
+}
+
+.casos-clinicos{
+padding:90px 10%;
+background:#f8ffff;
+text-align:center;
+}
+
+.casos-clinicos h2{
+color:#00a7b3;
+margin-bottom:15px;
+}
+
+.casos-clinicos p{
+margin-bottom:20px;
+line-height:1.7;
+}
+
+.qr-card{
+max-width:420px;
+margin:auto;
+background:#fff;
+padding:35px;
+border-radius:25px;
+box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+
+.qr-card img{
+width:220px;
+margin-bottom:20px;
+transition:.3s;
+}
+
+.qr-card img:hover{
+transform:scale(1.05);
+}
+
+.qr-card h3{
+color:#00a7b3;
+margin-bottom:10px;
+}
+
+.ubicacion{
+background:white;
+text-align:center;
+border-radius:20px;
+margin:0 auto 30px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.ubicacion h2{
+color:#00a7b3;
+margin-bottom:15px;
+}
+
+.ubicacion p{
+margin-bottom:20px;
+line-height:1.7;
+}
+
+.mapa{
+margin-top:20px;
+}
+
+.servicios{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+text-align:center;
+}
+
+.card h3{
+margin-bottom:10px;
+color:#00a7b3;
+}
+
+.galeria{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+}
+
+.galeria img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:15px;
+}
+
+.contacto{
+background:#00c2cb;
+color:white;
+text-align:center;
+}
+
+footer{
+background:#004f57;
+color:white;
+text-align:center;
+padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div>
+<h1>Laboratorio Dental Cancún</h1>
+<p>Diseño digital, zirconia e implantes con calidad profesional</p>
+<a class="btn" href="#contacto">Contáctanos</a>
+</div>
+</header>
+
+<section>
+<h2 class="titulo">Nuestros Servicios</h2>
+
+<div class="servicios">
+
+<div class="card">
+<h3>Coronas de Zirconia</h3>
+<p>Alta estética y resistencia para tus pacientes.</p>
+</div>
+
+<div class="card">
+<h3>Diseño CAD/CAM</h3>
+<p>Tecnología digital para máxima precisión.</p>
+</div>
+
+<div class="card">
+<h3>Implantes</h3>
+<p>Soluciones personalizadas para rehabilitación oral.</p>
+</div>
+
+<div class="card">
+<h3>Escaneo Digital</h3>
+<p>Procesos modernos y resultados confiables.</p>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2 class="titulo">Nuestros Trabajos</h2>
+
+<div class="galeria">
+
+<img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95" alt="Trabajo de laboratorio dental 1">
+<img src="https://images.unsplash.com/photo-1588776814546-ec7e6d7a4d8f" alt="Trabajo de laboratorio dental 2">
+<img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09" alt="Trabajo de laboratorio dental 3">
+
+</div>
+</section>
+
+<section class="casos-clinicos">
+<h2>Casos Clínicos</h2>
+<p>
+Conoce algunos de nuestros trabajos en zirconia, implantes,
+diseño CAD/CAM, prótesis y rehabilitación oral.
+</p>
+<div class="qr-card">
+<img src="img/qr-casos.png" alt="Código QR Casos Clínicos">
+<h3>Escanea el código QR</h3>
+<p>
+Accede a nuestra galería completa de casos clínicos.
+</p>
+<a href="https://drive.google.com/drive/folders/1IzVu4D98uU5b2bQdQy-_pN3ZI8ULnyCu?usp=drive_link"
+target="_blank"
+class="btn">
+Ver Galería
+</a>
+</div>
+</section>
+
+<section id="ubicacion" class="ubicacion">
+<h2>Nuestra Ubicación</h2>
+<p>
+Visítanos en <strong>PROTESICA INNOVACIÓN DENTAL</strong>, Cancún, Quintana Roo.
+Estamos listos para atender clínicas y odontólogos con trabajos de alta calidad.
+</p>
+<div class="mapa">
+<iframe
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.6776188167655!2d-86.85680852812503!3d21.1524348405074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2b750b36b481%3A0x2ebf3cfba57036a4!2sPROTESICA%20INNOVACION%20DENTAL!5e1!3m2!1ses!2sus!4v1783976100611!5m2!1ses!2sus"
+width="100%"
+height="450"
+style="border:0;border-radius:20px;"
+allowfullscreen=""
+loading="lazy"
+referrerpolicy="strict-origin-when-cross-origin">
+</iframe>
+</div>
+</section>
+
+<section id="contacto" class="contacto">
+<h2>Contáctanos</h2>
+<br>
+<p>📍 Cancún, Quintana Roo</p>
+<p>📱 WhatsApp: +52 TU NÚMERO</p>
+<p>✉️ correo@laboratorio.com</p>
+<br>
+<a class="btn" href="https://wa.me/5210000000000">Enviar WhatsApp</a>
+</section>
+
+<footer>
+<p>© 2026 Laboratorio Dental Cancún - Todos los derechos reservados</p>
+</footer>
+
+</body>
+</html>
