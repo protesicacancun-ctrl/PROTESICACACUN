@@ -742,11 +742,25 @@ section{
 }
 
 .contact-info{
+    width:100%;
+    max-width:100%;
     padding:22px;
     border-radius:20px;
     justify-content:flex-start;
     align-items:flex-start;
     box-shadow:0 18px 40px rgba(0,0,0,.08);
+    overflow:hidden;
+    box-sizing:border-box;
+}
+
+.contact-info span,
+.contact-info h2,
+.contact-info p,
+.contact-info .info,
+.contact-info .quote-form,
+.contact-info .buttons{
+    width:100%;
+    box-sizing:border-box;
 }
 
 .contact-info span{
@@ -763,6 +777,12 @@ section{
     flex-direction:column;
     gap:14px;
     width:100%;
+}
+
+.quote-form input,
+.quote-form textarea{
+    width:100%;
+    box-sizing:border-box;
 }
 
 .quote-form button{
