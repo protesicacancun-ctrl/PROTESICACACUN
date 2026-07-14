@@ -21,7 +21,7 @@ color:#333;
 }
 
 header{
-min-height:100vh;
+min-height:90vh;
 background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
 url('https://images.unsplash.com/photo-1510097467424-192d713fd8b2');
 background-size:cover;
@@ -29,8 +29,12 @@ background-position:center;
 display:flex;
 flex-direction:column;
 justify-content:space-between;
-padding:30px 10%;
+padding:30px 8%;
 color:white;
+}
+
+.hero-content{
+max-width:700px;
 }
 
 header .navbar{
@@ -193,7 +197,9 @@ opacity:0.95;
 }
 
 section{
-padding:80px 10%;
+padding:80px 8%;
+max-width:1400px;
+margin:auto;
 }
 
 .titulo{
@@ -362,12 +368,13 @@ box-shadow:
 }
 
 .services-grid{
-    display:flex;
-    flex-wrap:nowrap;
-    justify-content:space-between;
-    gap:16px;
+    display:grid;
+    grid-auto-flow:column;
+    grid-auto-columns:minmax(220px,1fr);
+    gap:20px;
     overflow-x:auto;
     padding-bottom:10px;
+    scroll-snap-type:x proximity;
 }
 
 .services-grid::-webkit-scrollbar{
@@ -383,6 +390,10 @@ box-shadow:
     border-radius:999px;
 }
 
+.services-grid > .card{
+    scroll-snap-align:start;
+}
+
 .card{
     background:white;
     padding:18px 14px;
@@ -395,7 +406,6 @@ box-shadow:
     align-items:center;
     gap:0.75rem;
     min-width:220px;
-    flex:1 0 220px;
 }
 
 .card:hover{
@@ -696,6 +706,18 @@ box-shadow:
     align-items:center;
 }
 
+.services-grid{
+    grid-auto-columns:minmax(260px,1fr);
+}
+
+header{
+    padding:24px 6%;
+}
+
+section{
+    padding:60px 6%;
+}
+
 .line{
     width:4px;
     height:100%;
@@ -982,8 +1004,6 @@ padding:20px;
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
-
-    <a href="mailto:protesicadentalcancun@gmail.com?subject=Cotización%20PROTESICA%20CANCÚN" class="btn-navbar">Cotizar</a>
   </div>
 
   <div class="hero-content">
@@ -1275,15 +1295,16 @@ document.addEventListener('DOMContentLoaded', function () {
         const telefono = data.get('telefono') || '';
         const mensaje = data.get('mensaje') || '';
 
-        const body = [
+        const bodyText = [
             `Nombre: ${nombre}`,
             `Correo: ${correo}`,
             `Teléfono: ${telefono}`,
             '',
             `Mensaje: ${mensaje}`
-        ].join('%0A');
+        ].join('\n');
 
         const subject = encodeURIComponent('Cotización PROTESICA CANCÚN');
+        const body = encodeURIComponent(bodyText);
         window.location.href = `mailto:protesicadentalcancun@gmail.com?subject=${subject}&body=${body}`;
     });
 });
