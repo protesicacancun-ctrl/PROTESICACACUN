@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <title>Laboratorio Dental Cancún</title>
 
 <style>
@@ -19,36 +21,175 @@ color:#333;
 }
 
 header{
-height:100vh;
+min-height:100vh;
 background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
 url('https://images.unsplash.com/photo-1510097467424-192d713fd8b2');
 background-size:cover;
 background-position:center;
 display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
+flex-direction:column;
+justify-content:space-between;
+padding:30px 10%;
 color:white;
 }
 
-header h1{
-font-size:4rem;
-margin-bottom:10px;
+header .navbar{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:1rem;
+width:100%;
+flex-wrap:wrap;
 }
 
-header p{
-font-size:1.3rem;
+.logo{
+display:flex;
+align-items:center;
+gap:0.85rem;
 }
 
-.btn{
-display:inline-block;
-margin-top:20px;
-padding:15px 30px;
-background:#00c2cb;
+.logo img{
+width:84px;
+height:84px;
+object-fit:cover;
+background:#ffffff;
+border-radius:50%;
+border:3px solid rgba(255,255,255,0.95);
+box-shadow:0 8px 24px rgba(0,0,0,0.25);
+display:block;
+}
+
+.brand h2{
+font-size:1.5rem;
+margin-bottom:0.2rem;
+}
+
+.brand span{
+font-size:0.9rem;
+color:rgba(255,255,255,0.8);
+}
+
+nav ul{
+display:flex;
+flex-wrap:wrap;
+gap:1rem;
+list-style:none;
+}
+
+nav a{
 color:white;
 text-decoration:none;
-border-radius:30px;
+font-weight:600;
+}
+
+.btn-navbar{
+display:inline-block;
+padding:0.9rem 1.5rem;
+background:#00c2cb;
+color:#00363c;
+border-radius:999px;
+text-decoration:none;
 font-weight:bold;
+}
+
+header .hero-content{
+display:flex;
+flex-direction:column;
+align-items:flex-start;
+max-width:620px;
+margin-top:4rem;
+gap:1rem;
+}
+
+header .hero-content h1{
+font-size:3.8rem;
+margin-bottom:0;
+line-height:1.05;
+}
+
+header .hero-content h1 span{
+color:#00f5ff;
+}
+
+header .hero-content h2{
+font-size:1.5rem;
+color:#e5fbff;
+}
+
+header .hero-content p{
+font-size:1.1rem;
+max-width:560px;
+line-height:1.8;
+}
+
+.badge{
+display:inline-block;
+padding:0.75rem 1rem;
+color:white;
+background:rgba(0,0,0,0.28);
+border-radius:999px;
+letter-spacing:0.08em;
+font-size:0.85rem;
+text-transform:uppercase;
+}
+
+.hero-buttons{
+display:flex;
+gap:1rem;
+flex-wrap:wrap;
+}
+
+.btn-primary,
+.btn-secondary{
+display:inline-block;
+padding:1rem 1.6rem;
+border-radius:999px;
+font-weight:700;
+text-decoration:none;
+transition:transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-primary{
+background:#00c2cb;
+color:#00363c;
+}
+
+.btn-secondary{
+background:rgba(255,255,255,0.12);
+color:white;
+border:1px solid rgba(255,255,255,0.35);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-navbar:hover,
+.btn:hover{
+transform:translateY(-2px);
+opacity:0.95;
+}
+
+@media (max-width: 860px) {
+  nav ul{
+    justify-content:center;
+  }
+}
+
+@media (max-width: 700px) {
+  header{
+    padding:20px;
+  }
+  header .navbar{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  nav ul{
+    flex-direction:column;
+    width:100%;
+  }
+  .btn-navbar{
+    width:100%;
+    text-align:center;
+  }
 }
 
 section{
@@ -122,25 +263,442 @@ line-height:1.7;
 
 .mapa{
 margin-top:20px;
+border:2px solid rgba(34,211,238,.25);
+box-shadow:
+0 0 25px rgba(34,211,238,.15),
+0 20px 60px rgba(0,0,0,.12);
 }
 
-.servicios{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+.about-section{
+    padding:100px 8%;
+    background:linear-gradient(135deg, #f8ffff 0%, #eef9fb 100%);
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1.2fr 0.8fr;
+    gap:40px;
+    align-items:center;
+    max-width:1200px;
+    margin:auto;
+}
+
+.about-content h2{
+    font-size:2.3rem;
+    color:#0f172a;
+    margin:18px 0 16px;
+}
+
+.about-content p{
+    color:#64748b;
+    line-height:1.8;
+    font-size:1.02rem;
+    margin-bottom:20px;
+}
+
+.about-list{
+    list-style:none;
+    display:grid;
+    gap:12px;
+    padding:0;
+    margin:0;
+}
+
+.about-list li{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#334155;
+    font-weight:600;
+}
+
+.about-list i{
+    color:#00BCD4;
+    font-size:1rem;
+}
+
+.about-stats{
+    display:grid;
+    gap:18px;
+}
+
+.stat-card{
+    background:white;
+    padding:24px;
+    border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.stat-card strong{
+    display:block;
+    font-size:1.8rem;
+    color:#00a7b3;
+    margin-bottom:6px;
+}
+
+.stat-card span{
+    color:#64748b;
+    font-size:0.95rem;
+}
+
+.services{
+    padding:100px 8%;
+    background:#f8fafc;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.title h2{
+    font-size:42px;
+    color:#0f172a;
+}
+
+.title p{
+    color:#64748b;
+    font-size:18px;
+}
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:30px;
 }
 
 .card{
-background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-text-align:center;
+    background:white;
+    padding:30px 20px;
+    border-radius:20px;
+    text-align:center;
+    transition:.35s;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1.2rem;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 30px 60px rgba(0,0,0,.18);
+}
+
+.card-image{
+    width:100%;
+    height:180px;
+    border-radius:16px;
+    overflow:hidden;
+    background:#e8f7f8;
+}
+
+.card-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
 }
 
 .card h3{
-margin-bottom:10px;
-color:#00a7b3;
+    margin:0;
+    font-size:1.25rem;
+    color:#0f172a;
+}
+
+.btn{
+    display:inline-block;
+    padding:0.95rem 1.6rem;
+    border-radius:999px;
+    font-weight:700;
+    text-decoration:none;
+    color:#00363c;
+    background:#00c2cb;
+    transition:transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    opacity:0.95;
+    background:#00afb8;
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(30px);
+    animation:fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.galeria img{
+    transition:transform .35s ease;
+}
+
+.galeria img:hover{
+    transform:scale(1.04);
+}
+
+.tecnologia-section{
+    padding:90px 10%;
+    background:#f8ffff;
+}
+
+.tecnologia-intro{
+    max-width:800px;
+    margin:0 auto 40px;
+    text-align:center;
+}
+
+.tecnologia-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap:24px;
+}
+
+.tecnologia-card{
+    background:#fff;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    transition:transform .3s ease, box-shadow .3s ease;
+}
+
+.tecnologia-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 45px rgba(0,0,0,.14);
+}
+
+.tecnologia-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    display:block;
+}
+
+.tecnologia-card-content{
+    padding:22px 22px 28px;
+}
+
+.tecnologia-card-content h3{
+    color:#00a7b3;
+    margin-bottom:8px;
+    font-size:1.2rem;
+}
+
+.tecnologia-card-content p{
+    color:#64748b;
+    line-height:1.7;
+    font-size:0.95rem;
+}
+
+.process-section{
+    padding:120px 8%;
+    background:#f8fafc;
+}
+
+.container{
+    max-width:1400px;
+    margin:auto;
+    text-align:center;
+}
+
+.section-tag{
+    color:#00BCD4;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+.process-section h2{
+    font-size:48px;
+    margin:20px 0;
+    color:#0f172a;
+}
+
+.process-section p{
+    max-width:700px;
+    margin:0 auto 70px;
+    color:#64748b;
+    font-size:18px;
+}
+
+.timeline{
+    position:relative;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:20px;
+}
+
+.line{
+    position:absolute;
+    top:45px;
+    left:5%;
+    width:90%;
+    height:4px;
+    border-radius:20px;
+    overflow:hidden;
+    background:#d7eef3;
+    z-index:1;
+    box-shadow:0 0 8px rgba(34,211,238,.3);
+}
+
+.line::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-40%;
+    width:40%;
+    height:100%;
+    border-radius:20px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #00BCD4,
+        #22D3EE,
+        #7DF9FF,
+        transparent
+    );
+    animation:flow 2s linear infinite;
+}
+
+@keyframes flow{
+    from{
+        left:-40%;
+    }
+    to{
+        left:100%;
+    }
+}
+
+.item{
+    position:relative;
+    z-index:2;
+    width:160px;
+    opacity:0;
+    transform:translateY(40px);
+    animation:fadeUp .8s forwards;
+}
+
+.item:nth-child(2){animation-delay:.2s;}
+.item:nth-child(3){animation-delay:.4s;}
+.item:nth-child(4){animation-delay:.6s;}
+.item:nth-child(5){animation-delay:.8s;}
+.item:nth-child(6){animation-delay:1s;}
+.item:nth-child(7){animation-delay:1.2s;}
+
+.icon{
+    width:90px;
+    height:90px;
+    margin:auto;
+    border-radius:50%;
+    background:white;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:38px;
+    transition:.35s;
+    animation:float 3s ease-in-out infinite, pulse 2s infinite;
+}
+
+.icon:hover{
+    transform:scale(1.15) rotate(8deg);
+    box-shadow:0 0 40px #00d4ff;
+    transition:.4s;
+}
+
+.icon{
+    transition:.4s;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+}
+
+@keyframes pulse{
+    0%{
+        box-shadow:0 0 0 0 rgba(34,211,238,.5);
+    }
+
+    70%{
+        box-shadow:0 0 0 20px rgba(34,211,238,0);
+    }
+
+    100%{
+        box-shadow:0 0 0 0 rgba(34,211,238,0);
+    }
+}
+
+.item h3{
+    margin-top:20px;
+    font-size:18px;
+    color:#0f172a;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:1000px){
+
+.about-grid{
+    grid-template-columns:1fr;
+}
+
+.timeline{
+    flex-direction:column;
+    align-items:center;
+}
+
+.line{
+    width:4px;
+    height:100%;
+    left:50%;
+    top:0;
+}
+
+.item{
+    margin:40px 0;
+}
+
+.contact-map{
+    grid-template-columns:1fr;
+    padding:80px 8%;
+}
+
+.map,
+.map iframe{
+    min-height:400px;
+}
+
 }
 
 .galeria{
@@ -156,6 +714,67 @@ object-fit:cover;
 border-radius:15px;
 }
 
+.contact-map{
+    display:grid;
+    grid-template-columns:minmax(320px, 420px) minmax(0, 1fr);
+    gap:50px;
+    padding:120px 8%;
+    align-items:stretch;
+}
+
+.contact-info{
+    padding:45px;
+    background:white;
+    border-radius:25px;
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.contact-info span{
+    color:#00BCD4;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.contact-info h2{
+    margin:20px 0;
+    font-size:42px;
+}
+
+.info{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin:25px 0;
+}
+
+.info i{
+    color:#00BCD4;
+    font-size:22px;
+}
+
+.map{
+    overflow:hidden;
+    border-radius:25px;
+    box-shadow:0 25px 60px rgba(0,0,0,.15);
+    min-height:500px;
+    height:100%;
+}
+
+.map iframe{
+    width:100%;
+    height:100%;
+    min-height:500px;
+    border:none;
+    transition:.5s;
+}
+
+.map:hover iframe{
+    transform:scale(1.02);
+}
+
 .contacto{
 background:#00c2cb;
 color:white;
@@ -168,45 +787,260 @@ color:white;
 text-align:center;
 padding:20px;
 }
+
+.whatsapp-float{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:#25D366;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:38px;
+    text-decoration:none;
+    z-index:9999;
+    box-shadow:0 10px 30px rgba(37,211,102,.45);
+    animation:pulse 2s infinite;
+    transition:.3s;
+}
+
+.whatsapp-float:hover{
+    transform:scale(1.12);
+    box-shadow:0 15px 45px rgba(37,211,102,.6);
+}
+
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+        box-shadow:0 0 0 0 rgba(37,211,102,.6);
+    }
+
+    70%{
+        transform:scale(1.08);
+        box-shadow:0 0 0 18px rgba(37,211,102,0);
+    }
+
+    100%{
+        transform:scale(1);
+        box-shadow:0 0 0 0 rgba(37,211,102,0);
+    }
+}
+
+.whatsapp-float i::before{
+    content:"📱";
+    font-size:28px;
+}
 </style>
 </head>
 
 <body>
 
-<header>
-<div>
-<h1>Laboratorio Dental Cancún</h1>
-<p>Diseño digital, zirconia e implantes con calidad profesional</p>
-<a class="btn" href="#contacto">Contáctanos</a>
-</div>
+<header id="inicio">
+  <div class="navbar">
+    <div class="logo">
+      <img src="logo cancun/PROTESICA CANCUN.jfif" alt="PROTESICA CANCUN">
+      <div class="brand">
+        <h2>PROTESICA</h2>
+        <span>CANCUN</span>
+      </div>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#tecnologia">Tecnología</a></li>
+        <li><a href="#casos">Casos Clínicos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <a href="https://wa.me/5219981234567" class="btn-navbar">Cotizar</a>
+  </div>
+
+  <div class="hero-content">
+    <span class="badge">Laboratorio Dental Digital</span>
+    <h1>PROTESICA <span>CANCUN</span></h1>
+    <h2>Innovación. Precisión. Confianza.</h2>
+    <p>Especialistas en zirconia, diseño CAD/CAM, implantes y restauraciones de alta estética para odontólogos y clínicas dentales de todo México.</p>
+    <div class="hero-buttons">
+      <a href="#contacto" class="btn-primary">Solicitar Cotización</a>
+      <a href="https://wa.me/5219981234567" class="btn-secondary">WhatsApp</a>
+    </div>
+  </div>
 </header>
 
-<section>
-<h2 class="titulo">Nuestros Servicios</h2>
+<section id="nosotros" class="about-section reveal">
+    <div class="about-grid">
+        <div class="about-content">
+            <span class="section-tag">Sobre nosotros</span>
+            <h2>Laboratorio dental digital con enfoque clínico y estético</h2>
+            <p>
+                En PROTESICA CANCÚN combinamos tecnología CAD/CAM, experiencia clínica y una atención cercana para entregar restauraciones precisas, resistentes y con una estética natural.
+            </p>
+            <ul class="about-list">
+                <li><i class="fa-solid fa-circle-check"></i>Atención personalizada para clínicas y odontólogos.</li>
+                <li><i class="fa-solid fa-circle-check"></i>Procesos digitales con control de calidad en cada etapa.</li>
+                <li><i class="fa-solid fa-circle-check"></i>Resultados funcionales, estéticos y con tiempos de entrega eficientes.</li>
+            </ul>
+        </div>
 
-<div class="servicios">
+        <div class="about-stats">
+            <div class="stat-card">
+                <strong>100%</strong>
+                <span>digital</span>
+            </div>
+            <div class="stat-card">
+                <strong>+1,000</strong>
+                <span>restauraciones</span>
+            </div>
+            <div class="stat-card">
+                <strong>24h</strong>
+                <span>respuesta</span>
+            </div>
+        </div>
+    </div>
+</section>
 
-<div class="card">
-<h3>Coronas de Zirconia</h3>
-<p>Alta estética y resistencia para tus pacientes.</p>
-</div>
+<section id="servicios" class="services">
+    <div class="title">
+        <h2>Nuestros Servicios</h2>
+        <p>Tecnología digital para ofrecer restauraciones de máxima calidad.</p>
+    </div>
 
-<div class="card">
-<h3>Diseño CAD/CAM</h3>
-<p>Tecnología digital para máxima precisión.</p>
-</div>
+    <div class="services-grid">
 
-<div class="card">
-<h3>Implantes</h3>
-<p>Soluciones personalizadas para rehabilitación oral.</p>
-</div>
+        <div class="card">
+            <div class="card-image">
+                <img src="img/servicio-1.jpg" alt="Zirconia Premium">
+            </div>
+            <h3>Zirconia Premium</h3>
+        </div>
 
-<div class="card">
-<h3>Escaneo Digital</h3>
-<p>Procesos modernos y resultados confiables.</p>
-</div>
+        <div class="card">
+            <div class="card-image">
+                <img src="img/servicio-2.jpg" alt="CAD/CAM">
+            </div>
+            <h3>CAD/CAM</h3>
+        </div>
 
-</div>
+        <div class="card">
+            <div class="card-image">
+                <img src="img/servicio-3.jpg" alt="E-max">
+            </div>
+            <h3>E-max</h3>
+        </div>
+
+        <div class="card">
+            <div class="card-image">
+                <img src="img/servicio-4.jpg" alt="Libres de Metal">
+            </div>
+            <h3>Libres de Metal</h3>
+        </div>
+
+        <div class="card">
+            <div class="card-image">
+                <img src="img/servicio-5.jpg" alt="Prótesis sobre Implantes">
+            </div>
+            <h3>Prótesis sobre Implantes</h3>
+        </div>
+
+        <div class="card">
+            <div class="card-image">
+                <img src="img/servicio-6.jpg" alt="Prótesis Removibles">
+            </div>
+            <h3>Prótesis Removibles</h3>
+        </div>
+
+    </div>
+</section>
+
+<section id="proceso" class="process-section">
+    <div class="container">
+        <span class="section-tag">Nuestro Proceso</span>
+        <h2>De la impresión a la sonrisa perfecta</h2>
+        <p>
+            Cada restauración sigue un flujo de trabajo digital diseñado para
+            ofrecer máxima precisión, estética y calidad.
+        </p>
+        <div class="timeline">
+            <div class="line"></div>
+            <div class="item">
+                <div class="icon">📥</div>
+                <h3>Escaneo</h3>
+            </div>
+            <div class="item">
+                <div class="icon">💻</div>
+                <h3>Diseño Digital</h3>
+            </div>
+            <div class="item">
+                <div class="icon">⚙️</div>
+                <h3>Fresado</h3>
+            </div>
+            <div class="item">
+                <div class="icon">🔥</div>
+                <h3>Sinterizado</h3>
+            </div>
+            <div class="item">
+                <div class="icon">✨</div>
+                <h3>Acabado</h3>
+            </div>
+            <div class="item">
+                <div class="icon">🔍</div>
+                <h3>Control de Calidad</h3>
+            </div>
+            <div class="item">
+                <div class="icon">📦</div>
+                <h3>Entrega</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="tecnologia" class="tecnologia-section reveal">
+    <div class="tecnologia-intro">
+        <h2 class="titulo">Tecnología</h2>
+        <p>Contamos con equipos CAD/CAM, escáneres 3D y software de diseño dental para fabricar prótesis con precisión digital y acabados de alta estética.</p>
+    </div>
+
+    <div class="tecnologia-grid">
+        <article class="tecnologia-card">
+            <img src="img/tecnologia-1.jpg" alt="Escáner intraoral digital para odontología">
+            <div class="tecnologia-card-content">
+                <h3>Escáner intraoral</h3>
+                <p>Capturamos modelos digitales de alta precisión para un diagnóstico más rápido y restauraciones más exactas.</p>
+            </div>
+        </article>
+
+        <article class="tecnologia-card">
+            <img src="img/tecnologia-2.jpg" alt="Fresadora CAD/CAM para prótesis dentales">
+            <div class="tecnologia-card-content">
+                <h3>Fresadora CAD/CAM</h3>
+                <p>Fabricamos prótesis con excelente adaptación, resistencia y acabado estético mediante tecnología digital.</p>
+            </div>
+        </article>
+
+        <article class="tecnologia-card">
+            <img src="img/tecnologia-3.jpg" alt="Software de diseño dental en computadora">
+            <div class="tecnologia-card-content">
+                <h3>Diseño digital</h3>
+                <p>Trabajamos con plataformas de diseño avanzado para crear restauraciones personalizadas y funcionales.</p>
+            </div>
+        </article>
+
+        <article class="tecnologia-card">
+            <img src="img/tecnologia-4.jpg" alt="Software Exocad en pantalla para diseño dental">
+            <div class="tecnologia-card-content">
+                <h3>Exocad</h3>
+                <p>Utilizamos software de diseño especializado para lograr resultados precisos, estéticos y alineados con la clínica.</p>
+            </div>
+        </article>
+    </div>
 </section>
 
 <section>
@@ -214,24 +1048,23 @@ padding:20px;
 
 <div class="galeria">
 
-<img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95" alt="Trabajo de laboratorio dental 1">
-<img src="https://images.unsplash.com/photo-1588776814546-ec7e6d7a4d8f" alt="Trabajo de laboratorio dental 2">
-<img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09" alt="Trabajo de laboratorio dental 3">
+<img src="nuestros trabajos/trabajo-1.jpg.jpeg.jfif" alt="Trabajo de laboratorio dental 1">
+<img src="nuestros trabajos/trabajo-2.jpg.jpeg.jfif" alt="Trabajo de laboratorio dental 2">
+<img src="nuestros trabajos/trabajo-3.jpg.jpeg" alt="Trabajo de laboratorio dental 3">
 
 </div>
 </section>
 
-<section class="casos-clinicos">
+<section id="casos" class="casos-clinicos reveal">
 <h2>Casos Clínicos</h2>
 <p>
 Conoce algunos de nuestros trabajos en zirconia, implantes,
 diseño CAD/CAM, prótesis y rehabilitación oral.
 </p>
 <div class="qr-card">
-<img src="img/qr-casos.png" alt="Código QR Casos Clínicos">
-<h3>Escanea el código QR</h3>
+<h3>Galería de Casos Clínicos</h3>
 <p>
-Accede a nuestra galería completa de casos clínicos.
+Accede directamente a nuestra galería completa de casos clínicos.
 </p>
 <a href="https://drive.google.com/drive/folders/1IzVu4D98uU5b2bQdQy-_pN3ZI8ULnyCu?usp=drive_link"
 target="_blank"
@@ -241,34 +1074,42 @@ Ver Galería
 </div>
 </section>
 
-<section id="ubicacion" class="ubicacion">
-<h2>Nuestra Ubicación</h2>
-<p>
-Visítanos en <strong>PROTESICA INNOVACIÓN DENTAL</strong>, Cancún, Quintana Roo.
-Estamos listos para atender clínicas y odontólogos con trabajos de alta calidad.
-</p>
-<div class="mapa">
-<iframe
-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.6776188167655!2d-86.85680852812503!3d21.1524348405074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2b750b36b481%3A0x2ebf3cfba57036a4!2sPROTESICA%20INNOVACION%20DENTAL!5e1!3m2!1ses!2sus!4v1783976100611!5m2!1ses!2sus"
-width="100%"
-height="450"
-style="border:0;border-radius:20px;"
-allowfullscreen=""
-loading="lazy"
-referrerpolicy="strict-origin-when-cross-origin">
-</iframe>
-</div>
+<section class="contact-map">
+    <div class="contact-info reveal">
+        <span>VISÍTANOS</span>
+        <h2>PROTESICA CANCUN</h2>
+        <p>
+            Estamos listos para atender clínicas y odontólogos con
+            soluciones digitales de alta precisión.
+        </p>
+        <div class="info">
+            <i class="fa-solid fa-location-dot"></i>
+            <p>PROTESICA INNOVACIÓN DENTAL, Cancún, Quintana Roo</p>
+        </div>
+        <div class="info">
+            <i class="fa-solid fa-phone"></i>
+            <p>(998) 000 0000</p>
+        </div>
+        <div class="buttons">
+            <a href="https://maps.app.goo.gl/cEURW3ThE1QbGUrs6" class="btn-primary" target="_blank">
+                Cómo llegar
+            </a>
+            <a href="https://wa.me/5219981234567" class="btn-secondary" target="_blank">
+                WhatsApp
+            </a>
+        </div>
+    </div>
+    <div class="map reveal">
+        <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.6776188167655!2d-86.85680852812503!3d21.1524348405074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2b750b36b481%3A0x2ebf3cfba57036a4!2sPROTESICA%20INNOVACION%20DENTAL!5e1!3m2!1ses!2sus!4v1783976100611!5m2!1ses!2sus"
+        loading="lazy">
+        </iframe>
+    </div>
 </section>
 
-<section id="contacto" class="contacto">
-<h2>Contáctanos</h2>
-<br>
-<p>📍 Cancún, Quintana Roo</p>
-<p>📱 WhatsApp: +52 TU NÚMERO</p>
-<p>✉️ correo@laboratorio.com</p>
-<br>
-<a class="btn" href="https://wa.me/5210000000000">Enviar WhatsApp</a>
-</section>
+<a href="https://wa.me/5219981234567" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
 
 <footer>
 <p>© 2026 Laboratorio Dental Cancún - Todos los derechos reservados</p>
