@@ -743,6 +743,69 @@ border-radius:15px;
     font-size:42px;
 }
 
+/* ===== HORARIO ===== */
+
+.horario-section{
+    padding:80px 20px;
+    display:flex;
+    justify-content:center;
+}
+
+.horario-container{
+    width:100%;
+    max-width:700px;
+    background:#fff;
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.35s ease;
+}
+
+.horario-container:hover{
+    transform:translateY(-5px);
+    box-shadow:0 20px 45px rgba(0,0,0,.12);
+}
+
+.horario-container h3{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.subtitulo{
+    text-align:center;
+    color:#666;
+    margin-bottom:25px;
+}
+
+.horario-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:16px 0;
+    border-bottom:1px solid #eee;
+}
+
+.horario-item:last-child{
+    border-bottom:none;
+}
+
+.horario-item span{
+    color:#444;
+}
+
+.horario-item strong{
+    color:#007AFF;
+}
+
+@media(max-width:768px){
+
+.horario-item{
+    flex-direction:column;
+    gap:8px;
+    text-align:center;
+}
+
+}
 .info{
     display:flex;
     align-items:center;
@@ -834,6 +897,33 @@ padding:20px;
     content:"📱";
     font-size:28px;
 }
+
+.quote-form {
+    display:grid;
+    gap:12px;
+    margin:16px 0 20px;
+}
+
+.quote-form input,
+.quote-form textarea {
+    width:100%;
+    padding:12px 14px;
+    border:1px solid #d9dce0;
+    border-radius:10px;
+    font:inherit;
+    box-sizing:border-box;
+}
+
+.quote-form textarea {
+    min-height:110px;
+    resize:vertical;
+}
+
+.quote-form button {
+    border:none;
+    cursor:pointer;
+    justify-self:start;
+}
 </style>
 </head>
 
@@ -860,7 +950,7 @@ padding:20px;
       </ul>
     </nav>
 
-    <a href="https://wa.me/5219981988932" class="btn-navbar">Cotizar</a>
+    <a href="mailto:protesicadentalcancun@gmail.com?subject=Cotización%20PROTESICA%20CANCÚN" class="btn-navbar">Cotizar</a>
   </div>
 
   <div class="hero-content">
@@ -869,7 +959,7 @@ padding:20px;
     <h2>Innovación. Precisión. Confianza.</h2>
     <p>Especialistas en zirconia, diseño CAD/CAM, implantes y restauraciones de alta estética para odontólogos y clínicas dentales de todo México.</p>
     <div class="hero-buttons">
-      <a href="#contacto" class="btn-primary">Solicitar Cotización</a>
+      <a href="mailto:protesicadentalcancun@gmail.com?subject=Cotización%20PROTESICA%20CANCÚN" class="btn-primary">Solicitar Cotización</a>
       <a href="https://wa.me/5219981988932" class="btn-secondary">WhatsApp</a>
     </div>
   </div>
@@ -948,13 +1038,6 @@ padding:20px;
                 <img src="img/servicio/servicio-5.jpg" alt="Prótesis sobre Implantes">
             </div>
             <h3>Prótesis sobre Implantes</h3>
-        </div>
-
-        <div class="card">
-            <div class="card-image">
-                <img src="img/servicio/servicio-6.jpg" alt="Prótesis Removibles">
-            </div>
-            <h3>Prótesis Removibles</h3>
         </div>
 
     </div>
@@ -1090,6 +1173,36 @@ Ver Galería
             <i class="fa-solid fa-phone"></i>
             <p>(998) 198 8932</p>
         </div>
+        <p>Envíanos tus datos y te responderemos con una cotización directa al correo.</p>
+        <form id="quote-form" class="quote-form">
+            <input type="text" name="nombre" placeholder="Tu nombre" required>
+            <input type="email" name="correo" placeholder="Correo electrónico" required>
+            <input type="tel" name="telefono" placeholder="Teléfono" required>
+            <textarea name="mensaje" placeholder="Describe el servicio o prótesis que necesitas" required></textarea>
+            <button type="submit" class="btn-primary">Enviar cotización</button>
+        </form>
+        <section id="horario" class="horario-section">
+            <div class="horario-container">
+                <h3>Horario de Atención</h3>
+                <p class="subtitulo">Estamos para atenderte en los siguientes horarios:</p>
+
+                <div class="horario-item">
+                    <span>Lunes a Viernes</span>
+                    <strong>9:00 AM - 7:00 PM</strong>
+                </div>
+
+                <div class="horario-item">
+                    <span>Sábados y Domingos</span>
+                    <strong>Cerrado</strong>
+                </div>
+
+                <div class="horario-item">
+                    <span>Días Festivos</span>
+                    <strong>No laboramos</strong>
+                </div>
+            </div>
+        </section>
+
         <div class="buttons">
             <a href="https://maps.app.goo.gl/cEURW3ThE1QbGUrs6" class="btn-primary" target="_blank">
                 Cómo llegar
@@ -1114,6 +1227,34 @@ Ver Galería
 <footer>
 <p>© 2026 Laboratorio Dental Cancún - Todos los derechos reservados</p>
 </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('quote-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const data = new FormData(form);
+        const nombre = data.get('nombre') || '';
+        const correo = data.get('correo') || '';
+        const telefono = data.get('telefono') || '';
+        const mensaje = data.get('mensaje') || '';
+
+        const body = [
+            `Nombre: ${nombre}`,
+            `Correo: ${correo}`,
+            `Teléfono: ${telefono}`,
+            '',
+            `Mensaje: ${mensaje}`
+        ].join('%0A');
+
+        const subject = encodeURIComponent('Cotización PROTESICA CANCÚN');
+        window.location.href = `mailto:protesicadentalcancun@gmail.com?subject=${subject}&body=${body}`;
+    });
+});
+</script>
 
 </body>
 </html>
