@@ -731,12 +731,32 @@ section{
 
 .contact-map{
     grid-template-columns:1fr;
-    padding:80px 8%;
+    padding:60px 6%;
+    gap:24px;
 }
 
-.map,
+.map{
+    min-height:260px;
+}
+
 .map iframe{
-    min-height:400px;
+    width:100%;
+    min-height:260px;
+}
+
+.buttons{
+    flex-direction:column;
+    align-items:stretch;
+}
+
+.buttons a{
+    width:100%;
+    text-align:center;
+}
+
+.info{
+    flex-direction:column;
+    align-items:flex-start;
 }
 
 }
@@ -1305,7 +1325,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const subject = encodeURIComponent('Cotización PROTESICA CANCÚN');
         const body = encodeURIComponent(bodyText);
-        window.location.href = `mailto:protesicadentalcancun@gmail.com?subject=${subject}&body=${body}`;
+        const mailtoLink = `mailto:protesicadentalcancun@gmail.com?subject=${subject}&body=${body}`;
+
+        window.open(mailtoLink, '_blank');
     });
 });
 </script>
