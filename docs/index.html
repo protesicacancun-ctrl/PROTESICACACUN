@@ -454,7 +454,12 @@ box-shadow:
 .reveal{
     opacity:0;
     transform:translateY(30px);
-    animation:fadeIn 1s ease forwards;
+    transition:opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
 }
 
 @keyframes fadeIn{
@@ -706,6 +711,22 @@ box-shadow:
     align-items:center;
 }
 
+.line::before{
+    top:-40%;
+    left:0;
+    width:100%;
+    height:40%;
+    background:linear-gradient(
+        180deg,
+        transparent,
+        #00BCD4,
+        #22D3EE,
+        #7DF9FF,
+        transparent
+    );
+    animation:flow-vertical 2s linear infinite;
+}
+
 .services-grid{
     grid-auto-columns:minmax(260px,1fr);
 }
@@ -720,9 +741,35 @@ section{
 
 .line{
     width:4px;
-    height:100%;
+    height:calc(100% - 80px);
     left:50%;
-    top:0;
+    top:40px;
+    transform:translateX(-50%);
+}
+
+.line::before{
+    top:-20%;
+    left:0;
+    width:100%;
+    height:20%;
+    background:linear-gradient(
+        180deg,
+        transparent,
+        #00BCD4,
+        #22D3EE,
+        #7DF9FF,
+        transparent
+    );
+    animation:flow-vertical 2s linear infinite;
+}
+
+@keyframes flow-vertical{
+    from{
+        top:-20%;
+    }
+    to{
+        top:100%;
+    }
 }
 
 .item{
@@ -1220,7 +1267,7 @@ padding:20px;
     </div>
 </section>
 
-<section id="proceso" class="process-section">
+<section id="proceso" class="process-section reveal">
     <div class="container">
         <span class="section-tag">Nuestro Proceso</span>
         <h2>De la impresión a la sonrisa perfecta</h2>
@@ -1334,7 +1381,7 @@ Ver Galería
 </div>
 </section>
 
-<section id="contacto" class="contact-map">
+<section id="contacto" class="contact-map reveal">
     <div class="contact-info reveal">
         <span>VISÍTANOS</span>
         <h2>PROTESICA CANCUN</h2>
@@ -1437,6 +1484,21 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location.href = mailtoLink;
         }
     });
+
+    const revealElements = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, observerInstance) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observerInstance.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        revealElements.forEach(el => observer.observe(el));
+    } else {
+        revealElements.forEach(el => el.classList.add('visible'));
+    }
 });
 </script>
 
